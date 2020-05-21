@@ -23,20 +23,21 @@ class MarsRover {
     }
 
     void execute(Command command) {
-        if (orientation.equals(Orientation.N) && command.equals(Command.M)) {
-            coordinate.increaseYBy(STEP);
-        }
-
-        if (orientation.equals(Orientation.S) && command.equals(Command.M)) {
-            coordinate.decreaseYBy(STEP);
-        }
-
-        if (orientation.equals(Orientation.E) && command.equals(Command.M)) {
-            coordinate.increaseXBy(STEP);
-        }
-
-        if (orientation.equals(Orientation.W) && command.equals(Command.M)) {
-            coordinate.decreaseXBy(STEP);
+        if (command.equals(Command.M)) {
+            switch (orientation) {
+                case N:
+                    coordinate.increaseYBy(STEP);
+                    break;
+                case S:
+                    coordinate.decreaseYBy(STEP);
+                    break;
+                case E:
+                    coordinate.increaseXBy(STEP);
+                    break;
+                case W:
+                    coordinate.decreaseXBy(STEP);
+                    break;
+            }
         }
     }
 }
