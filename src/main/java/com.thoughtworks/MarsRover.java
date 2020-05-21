@@ -1,6 +1,7 @@
 package com.thoughtworks;
 
 class MarsRover {
+    private static final int STEP = 1;
     private Coordinate coordinate;
     private Orientation orientation;
 
@@ -19,5 +20,11 @@ class MarsRover {
 
     Orientation getOrientation() {
         return orientation;
+    }
+
+    void execute(Command command) {
+        if (orientation.equals(Orientation.N) && command.equals(Command.M)) {
+            coordinate.increaseYBy(STEP);
+        }
     }
 }

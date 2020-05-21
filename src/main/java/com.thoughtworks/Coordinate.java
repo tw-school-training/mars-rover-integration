@@ -16,4 +16,8 @@ class Coordinate {
     int getY() {
         return y;
     }
+
+    void increaseYBy(int step) {
+        y += step;
+    }
 }
