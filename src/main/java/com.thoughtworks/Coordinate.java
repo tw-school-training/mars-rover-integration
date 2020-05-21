@@ -28,4 +28,8 @@ class Coordinate {
     void increaseXBy(int step) {
         x += step;
     }
+
+    void decreaseXBy(int step) {
+        x -= step;
+    }
 }
