@@ -30,5 +30,9 @@ class MarsRover {
         if (orientation.equals(Orientation.S) && command.equals(Command.M)) {
             coordinate.decreaseYBy(STEP);
         }
+
+        if (orientation.equals(Orientation.E) && command.equals(Command.M)) {
+            coordinate.increaseXBy(STEP);
+        }
     }
 }

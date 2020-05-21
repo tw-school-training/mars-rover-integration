@@ -31,7 +31,6 @@ public class MarsRoverTest {
         assertThat(marsRover.getOrientation(), is(Orientation.N));
     }
 
-
     @Test
     public void should_coordinate_y_minus_1_given_command_M_and_orientation_S() {
         //given
@@ -43,5 +42,18 @@ public class MarsRoverTest {
         assertThat(marsRover.getCoordinateX(), is(1));
         assertThat(marsRover.getCoordinateY(), is(1));
         assertThat(marsRover.getOrientation(), is(Orientation.S));
+    }
+
+    @Test
+    public void should_coordinate_x_plus_1_given_command_M_and_orientation_E() {
+        //given
+        MarsRover marsRover = new MarsRover(new Coordinate(1, 2), Orientation.E);
+
+        //when
+        marsRover.execute(Command.M);
+        //then
+        assertThat(marsRover.getCoordinateX(), is(2));
+        assertThat(marsRover.getCoordinateY(), is(2));
+        assertThat(marsRover.getOrientation(), is(Orientation.E));
     }
 }
