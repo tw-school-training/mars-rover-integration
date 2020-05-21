@@ -20,4 +20,8 @@ class Coordinate {
     void increaseYBy(int step) {
         y += step;
     }
+
+    void decreaseYBy(int step) {
+        y -= step;
+    }
 }

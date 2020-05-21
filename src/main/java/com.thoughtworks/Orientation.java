@@ -1,5 +1,5 @@
 package com.thoughtworks;
 
 public enum Orientation {
-    N
+    S, N
 }
