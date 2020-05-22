@@ -11,6 +11,10 @@ public enum Orientation {
     }
 
     public Orientation turnRight() {
+        if (this.equals(S)) {
+            return W;
+        }
+        
         return E;
     }
 }
