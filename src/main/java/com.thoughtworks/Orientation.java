@@ -9,4 +9,8 @@ public enum Orientation {
 
         return Orientation.values()[nextIndex];
     }
+
+    public Orientation turnRight() {
+        return E;
+    }
 }

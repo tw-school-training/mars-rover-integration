@@ -43,5 +43,9 @@ class MarsRover {
         if (command.equals(Command.L)) {
             this.orientation = orientation.turnLeft();
         }
+
+        if (command.equals(Command.R)) {
+            this.orientation = orientation.turnRight();
+        }
     }
 }

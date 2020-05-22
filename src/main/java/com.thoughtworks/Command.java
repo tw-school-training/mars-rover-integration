@@ -1,5 +1,5 @@
 package com.thoughtworks;
 
 public enum Command {
-    L, M
+    L, R, M
 }
