@@ -4,6 +4,9 @@ public enum Orientation {
     S, E, W, N;
 
     public Orientation turnLeft() {
-        return Orientation.W;
+        if (this.equals(N)) {
+            return W;
+        }
+        return E;
     }
 }
