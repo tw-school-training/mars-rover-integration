@@ -5,22 +5,17 @@ public enum Orientation {
 
     public Orientation turnLeft() {
         int orientationEnumSize = Orientation.values().length;
-        int nextIndex = (this.ordinal() + 1) % orientationEnumSize;
+        int indexIncrement = 1;
+        int nextIndex = (this.ordinal() + indexIncrement) % orientationEnumSize;
 
         return Orientation.values()[nextIndex];
     }
 
     public Orientation turnRight() {
-        if (this.equals(S)) {
-            return W;
-        }
-        if (this.equals(E)) {
-            return S;
-        }
-        if (this.equals(W)) {
-            return N;
-        }
+        int orientationEnumSize = Orientation.values().length;
+        int indexIncrement = 3;
+        int nextIndex = (this.ordinal() + indexIncrement) % orientationEnumSize;
 
-        return E;
+        return Orientation.values()[nextIndex];
     }
 }
