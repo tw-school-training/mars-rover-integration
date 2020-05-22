@@ -39,5 +39,9 @@ class MarsRover {
                     break;
             }
         }
+
+        if (command.equals(Command.L)) {
+            this.orientation = orientation.turnLeft();
+        }
     }
 }
