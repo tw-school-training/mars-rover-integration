@@ -17,6 +17,9 @@ public enum Orientation {
         if (this.equals(E)) {
             return S;
         }
+        if (this.equals(W)) {
+            return N;
+        }
 
         return E;
     }
