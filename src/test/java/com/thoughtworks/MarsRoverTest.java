@@ -78,6 +78,38 @@ public class MarsRoverTest {
         checkCoordinateAndOrientation(Command.R, Orientation.W, Orientation.N, new Coordinate(1, 2));
     }
 
+    @Test
+    public void should_facing_S_given_command_R_R_and_orientation_N() {
+        //given
+        MarsRover marsRover = new MarsRover(new Coordinate(1, 2), Orientation.N);
+
+        //when
+        marsRover.execute(Command.R);
+        marsRover.execute(Command.R);
+
+        //then
+        assertThat(marsRover.getCoordinateX(), is(1));
+        assertThat(marsRover.getCoordinateY(), is(2));
+        assertThat(marsRover.getOrientation(), is(Orientation.S));
+    }
+
+    @Test
+    public void should_facing_W_given_command_R_R_M_L_and_orientation_N() {
+        //given
+        MarsRover marsRover = new MarsRover(new Coordinate(1, 2), Orientation.N);
+
+        //when
+        marsRover.execute(Command.R);
+        marsRover.execute(Command.R);
+        marsRover.execute(Command.M);
+        marsRover.execute(Command.L);
+
+        //then
+        assertThat(marsRover.getCoordinateX(), is(1));
+        assertThat(marsRover.getCoordinateY(), is(1));
+        assertThat(marsRover.getOrientation(), is(Orientation.E));
+    }
+
     private void checkCoordinateAndOrientation(Command command, Orientation previousOrientation,
                                                Orientation orientation, Coordinate coordinate) {
         //given
