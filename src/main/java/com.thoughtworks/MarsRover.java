@@ -1,5 +1,7 @@
 package com.thoughtworks;
 
+import java.util.List;
+
 class MarsRover {
     private static final int STEP = 1;
     private Coordinate coordinate;
@@ -47,5 +49,13 @@ class MarsRover {
         if (command.equals(Command.R)) {
             this.orientation = orientation.turnRight();
         }
+    }
+
+    void executeBatch(List<Command> commands) {
+        commands.forEach(this::execute);
+    }
+
+    String getStatus() {
+        return String.format("%s %s %s", coordinate.getX(), coordinate.getY(), orientation);
     }
 }
