@@ -52,4 +52,20 @@ class Coordinate {
     private boolean isCoordinateXInside(int nextX, Area area) {
         return nextX <= area.getMaxCoordinateX() && nextX >= area.getMinCoordinateX();
     }
+
+    boolean isIncreasedYInside(int step, Area area) {
+        return isCoordinateYInside(y + step, area);
+    }
+
+    boolean isDecreasedYInside(int step, Area area) {
+        return isCoordinateYInside(y - step, area);
+    }
+
+    boolean isIncreasedXInside(int step, Area area) {
+        return isCoordinateXInside(x + step, area);
+    }
+
+    boolean isDecreasedXInside(int step, Area area) {
+        return isCoordinateXInside(x - step, area);
+    }
 }

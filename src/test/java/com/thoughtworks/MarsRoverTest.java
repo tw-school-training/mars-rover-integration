@@ -201,4 +201,19 @@ public class MarsRoverTest {
         //then
         assertThat(marsRover.getOrientation(), is(Orientation.S));
     }
+
+    @Test
+    public void should_not_move_and_change_facing_at_the_given_coordinate_boundary_given_command_ML_and_any_orientation() {
+        //given
+        MarsRover marsRover = new MarsRover(new Coordinate(-3, 1), Orientation.W);
+        Area area = new Area(-3, 3, -3, 3);
+
+        //when
+        marsRover.executeBatch(Arrays.asList(Command.M, Command.L), area);
+
+        //then
+        assertThat(marsRover.getCoordinateX(), is(-3));
+        assertThat(marsRover.getCoordinateY(), is(1));
+        assertThat(marsRover.getOrientation(), is(Orientation.W));
+    }
 }

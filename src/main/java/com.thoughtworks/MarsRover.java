@@ -52,7 +52,29 @@ class MarsRover {
     }
 
     void executeBatch(List<Command> commands, Area area) {
-        commands.forEach(command -> execute(command, area));
+        for (Command command : commands) {
+            if (isNextStepInside(command, area)) {
+                execute(command, area);
+            } else {
+                break;
+            }
+        }
+    }
+
+    private boolean isNextStepInside(Command command, Area area) {
+        if (command.equals(Command.M)) {
+            switch (orientation) {
+                case N:
+                    return coordinate.isIncreasedYInside(STEP, area);
+                case S:
+                    return coordinate.isDecreasedYInside(STEP, area);
+                case E:
+                    return coordinate.isIncreasedXInside(STEP, area);
+                case W:
+                    return coordinate.isDecreasedXInside(STEP,area);
+            }
+        }
+        return true;
     }
 
     String getStatus() {
