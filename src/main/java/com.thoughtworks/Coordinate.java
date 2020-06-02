@@ -17,8 +17,11 @@ class Coordinate {
         return y;
     }
 
-    void increaseYBy(int step) {
-        y += step;
+    void increaseYBy(int step, Area area) {
+        int nextY = y + step;
+        if (area != null && isCoordinateYInside(nextY, area)) {
+            y += step;
+        }
     }
 
     void decreaseYBy(int step) {
@@ -31,5 +34,9 @@ class Coordinate {
 
     void decreaseXBy(int step) {
         x -= step;
+    }
+
+    private boolean isCoordinateYInside(int nextY, Area area) {
+        return nextY <= area.getMaxCoordinateY() && nextY >= area.getMinCoordinateY();
     }
 }

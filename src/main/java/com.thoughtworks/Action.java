@@ -21,7 +21,7 @@ class Action {
         Orientation orientation = getOrientation(positionAndOrientation);
         marsRover = new MarsRover(coordinate, orientation);
 
-        marsRover.executeBatch(commands);
+        marsRover.executeBatch(commands, null);
     }
 
     String report() {

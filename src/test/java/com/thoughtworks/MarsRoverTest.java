@@ -2,8 +2,10 @@ package com.thoughtworks;
 
 import org.junit.Test;
 
+import java.util.Collections;
+
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 public class MarsRoverTest {
     @Test
@@ -82,10 +84,11 @@ public class MarsRoverTest {
     public void should_facing_S_given_command_R_R_and_orientation_N() {
         //given
         MarsRover marsRover = new MarsRover(new Coordinate(1, 2), Orientation.N);
+        Area area = new Area(-10, 10, -10, 10);
 
         //when
-        marsRover.execute(Command.R);
-        marsRover.execute(Command.R);
+        marsRover.execute(Command.R, area);
+        marsRover.execute(Command.R, null);
 
         //then
         assertThat(marsRover.getCoordinateX(), is(1));
@@ -97,12 +100,13 @@ public class MarsRoverTest {
     public void should_facing_W_given_command_R_R_M_L_and_orientation_N() {
         //given
         MarsRover marsRover = new MarsRover(new Coordinate(1, 2), Orientation.N);
+        Area area = new Area(-10, 10, -10, 10);
 
         //when
-        marsRover.execute(Command.R);
-        marsRover.execute(Command.R);
-        marsRover.execute(Command.M);
-        marsRover.execute(Command.L);
+        marsRover.execute(Command.R, area);
+        marsRover.execute(Command.R, area);
+        marsRover.execute(Command.M, area);
+        marsRover.execute(Command.L, area);
 
         //then
         assertThat(marsRover.getCoordinateX(), is(1));
@@ -114,13 +118,28 @@ public class MarsRoverTest {
                                                Orientation orientation, Coordinate coordinate) {
         //given
         MarsRover marsRover = new MarsRover(new Coordinate(1, 2), previousOrientation);
-
+        Area area = new Area(-10, 10, -10, 10);
         //when
-        marsRover.execute(command);
+        marsRover.execute(command, area);
 
         //then
         assertThat(marsRover.getCoordinateX(), is(coordinate.getX()));
         assertThat(marsRover.getCoordinateY(), is(coordinate.getY()));
         assertThat(marsRover.getOrientation(), is(orientation));
+    }
+
+    @Test
+    public void should_not_move_at_the_given_coordinate_y_boundary_given_command_M_and_orientation_N() {
+        //given
+        MarsRover marsRover = new MarsRover(new Coordinate(1, 3), Orientation.N);
+        Area area = new Area(-3, 3, -3, 3);
+
+        //when
+        marsRover.executeBatch(Collections.singletonList(Command.M), area);
+
+        //then
+        assertThat(marsRover.getCoordinateX(), is(1));
+        assertThat(marsRover.getCoordinateY(), is(3));
+        assertThat(marsRover.getOrientation(), is(Orientation.N));
     }
 }

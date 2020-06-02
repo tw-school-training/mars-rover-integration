@@ -24,11 +24,11 @@ class MarsRover {
         return orientation;
     }
 
-    void execute(Command command) {
+    void execute(Command command, Area area) {
         if (command.equals(Command.M)) {
             switch (orientation) {
                 case N:
-                    coordinate.increaseYBy(STEP);
+                    coordinate.increaseYBy(STEP, area);
                     break;
                 case S:
                     coordinate.decreaseYBy(STEP);
@@ -51,8 +51,8 @@ class MarsRover {
         }
     }
 
-    void executeBatch(List<Command> commands) {
-        commands.forEach(this::execute);
+    void executeBatch(List<Command> commands, Area area) {
+        commands.forEach(command -> execute(command, area));
     }
 
     String getStatus() {
