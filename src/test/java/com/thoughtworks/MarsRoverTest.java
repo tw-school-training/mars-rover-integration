@@ -2,6 +2,7 @@ package com.thoughtworks;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 import static org.hamcrest.core.Is.is;
@@ -186,5 +187,18 @@ public class MarsRoverTest {
         assertThat(marsRover.getCoordinateX(), is(-3));
         assertThat(marsRover.getCoordinateY(), is(1));
         assertThat(marsRover.getOrientation(), is(Orientation.W));
+    }
+
+    @Test
+    public void should_change_facing_at_the_given_coordinate_boundary_given_command_L_and_any_orientation() {
+        //given
+        MarsRover marsRover = new MarsRover(new Coordinate(-3, 1), Orientation.W);
+        Area area = new Area(-3, 3, -3, 3);
+
+        //when
+        marsRover.executeBatch(Collections.singletonList(Command.L), area);
+
+        //then
+        assertThat(marsRover.getOrientation(), is(Orientation.S));
     }
 }
