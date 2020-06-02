@@ -24,8 +24,11 @@ class Coordinate {
         }
     }
 
-    void decreaseYBy(int step) {
-        y -= step;
+    void decreaseYBy(int step, Area area) {
+        int nextY = y - step;
+        if (area != null && isCoordinateYInside(nextY, area)) {
+            y -= step;
+        }
     }
 
     void increaseXBy(int step) {
