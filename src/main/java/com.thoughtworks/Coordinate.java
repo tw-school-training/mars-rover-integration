@@ -38,8 +38,11 @@ class Coordinate {
         }
     }
 
-    void decreaseXBy(int step) {
-        x -= step;
+    void decreaseXBy(int step, Area area) {
+        int nextX = x - step;
+        if (area != null && isCoordinateXInside(nextX, area)) {
+            x -= step;
+        }
     }
 
     private boolean isCoordinateYInside(int nextY, Area area) {
