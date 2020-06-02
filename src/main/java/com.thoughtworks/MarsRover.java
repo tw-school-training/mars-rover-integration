@@ -34,7 +34,7 @@ class MarsRover {
                     coordinate.decreaseYBy(STEP, area);
                     break;
                 case E:
-                    coordinate.increaseXBy(STEP);
+                    coordinate.increaseXBy(STEP, area);
                     break;
                 case W:
                     coordinate.decreaseXBy(STEP);

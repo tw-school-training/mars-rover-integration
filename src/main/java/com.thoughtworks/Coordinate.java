@@ -31,8 +31,11 @@ class Coordinate {
         }
     }
 
-    void increaseXBy(int step) {
-        x += step;
+    void increaseXBy(int step, Area area) {
+        int nextX = x + step;
+        if (area != null && isCoordinateXInside(nextX, area)) {
+            x += step;
+        }
     }
 
     void decreaseXBy(int step) {
@@ -41,5 +44,9 @@ class Coordinate {
 
     private boolean isCoordinateYInside(int nextY, Area area) {
         return nextY <= area.getMaxCoordinateY() && nextY >= area.getMinCoordinateY();
+    }
+
+    private boolean isCoordinateXInside(int nextX, Area area) {
+        return nextX <= area.getMaxCoordinateX() && nextX >= area.getMinCoordinateX();
     }
 }
