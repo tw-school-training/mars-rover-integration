@@ -18,35 +18,35 @@ class Coordinate {
         return y;
     }
 
-    void increaseYBy(int step) {
-        y += step;
+    private void increaseY() {
+        y += Coordinate.STEP;
     }
 
-    void decreaseYBy(int step) {
-        y -= step;
+    private void decreaseY() {
+        y -= Coordinate.STEP;
     }
 
-    void increaseXBy(int step) {
-        x += step;
+    private void increaseX() {
+        x += Coordinate.STEP;
     }
 
-    void decreaseXBy(int step) {
-        x -= step;
+    private void decreaseX() {
+        x -= Coordinate.STEP;
     }
 
     void update(Orientation orientation) {
         switch (orientation) {
             case N:
-                increaseYBy(STEP);
+                increaseY();
                 break;
             case S:
-                decreaseYBy(STEP);
+                decreaseY();
                 break;
             case E:
-                increaseXBy(STEP);
+                increaseX();
                 break;
             case W:
-                decreaseXBy(STEP);
+                decreaseX();
                 break;
         }
     }
