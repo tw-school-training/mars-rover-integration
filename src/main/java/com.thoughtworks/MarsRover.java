@@ -11,6 +11,11 @@ class MarsRover {
         this.orientation = orientation;
     }
 
+    MarsRover(CoordinateAndOrientation coordinateAndOrientation) {
+        coordinate = coordinateAndOrientation.getCoordinate();
+        orientation = coordinateAndOrientation.getOrientation();
+    }
+
     int getCoordinateX() {
         return coordinate.getX();
     }
