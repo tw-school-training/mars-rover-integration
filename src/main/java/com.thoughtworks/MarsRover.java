@@ -34,11 +34,11 @@ class MarsRover {
         }
 
         if (command.equals(Command.L)) {
-            this.orientation = orientation.turnLeft();
+            this.orientation = orientation.calculateLeftOrientation();
         }
 
         if (command.equals(Command.R)) {
-            this.orientation = orientation.turnRight();
+            this.orientation = orientation.calculateRightOrientation();
         }
     }
 
