@@ -3,7 +3,6 @@ package com.thoughtworks;
 import java.util.List;
 
 class MarsRover {
-    private static final int STEP = 1;
     private Coordinate coordinate;
     private Orientation orientation;
 
@@ -26,20 +25,7 @@ class MarsRover {
 
     void execute(Command command) {
         if (command.equals(Command.M)) {
-            switch (orientation) {
-                case N:
-                    coordinate.increaseYBy(STEP);
-                    break;
-                case S:
-                    coordinate.decreaseYBy(STEP);
-                    break;
-                case E:
-                    coordinate.increaseXBy(STEP);
-                    break;
-                case W:
-                    coordinate.decreaseXBy(STEP);
-                    break;
-            }
+            coordinate.update(orientation);
         }
 
         if (command.equals(Command.L)) {

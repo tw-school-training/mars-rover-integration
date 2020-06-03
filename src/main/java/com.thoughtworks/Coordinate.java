@@ -1,6 +1,7 @@
 package com.thoughtworks;
 
 class Coordinate {
+    private static final int STEP = 1;
     private int x;
     private int y;
 
@@ -31,5 +32,22 @@ class Coordinate {
 
     void decreaseXBy(int step) {
         x -= step;
+    }
+
+    void update(Orientation orientation) {
+        switch (orientation) {
+            case N:
+                increaseYBy(STEP);
+                break;
+            case S:
+                decreaseYBy(STEP);
+                break;
+            case E:
+                increaseXBy(STEP);
+                break;
+            case W:
+                decreaseXBy(STEP);
+                break;
+        }
     }
 }
