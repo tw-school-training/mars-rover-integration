@@ -50,4 +50,11 @@ class Coordinate {
                 break;
         }
     }
+
+    boolean isAtTheBoundary(Area area) {
+        return x == area.getMaxCoordinateX()
+                || x == area.getMinCoordinateX()
+                || y == area.getMaxCoordinateY()
+                || y == area.getMinCoordinateY();
+    }
 }

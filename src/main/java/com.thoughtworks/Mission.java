@@ -13,7 +13,7 @@ class Mission {
     void perform() {
         missionReceiver.resolve(actions);
 
-        marsRover = new MarsRover(missionReceiver.getCoordinateAndOrientation());
+        marsRover = new MarsRover(missionReceiver.getCoordinateAndOrientation(), missionReceiver.getArea());
 
         marsRover.execute(missionReceiver.getCommands());
     }

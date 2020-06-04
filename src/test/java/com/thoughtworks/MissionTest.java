@@ -9,7 +9,7 @@ public class MissionTest {
     @Test
     public void should_return_new_orientation_and_position_given_multiple_commands_and_initial_position_and_orientation() {
         //given
-        Mission mission = new Mission("1 2 N\n" + "-5 4 -3 2\n" + "RRLLMLRM");
+        Mission mission = new Mission("1 2 N\n" + "-5 4 -3 4\n" + "RRLLMLRM");
 
         //when
         mission.perform();

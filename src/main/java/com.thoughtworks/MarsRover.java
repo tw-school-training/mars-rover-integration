@@ -13,9 +13,10 @@ class MarsRover {
         this.area = area;
     }
 
-    MarsRover(CoordinateAndOrientation coordinateAndOrientation) {
+    MarsRover(CoordinateAndOrientation coordinateAndOrientation, Area area) {
         coordinate = coordinateAndOrientation.getCoordinate();
         orientation = coordinateAndOrientation.getOrientation();
+        this.area = area;
     }
 
     int getCoordinateX() {
@@ -31,7 +32,7 @@ class MarsRover {
     }
 
     private void executeEach(Command command) {
-        if (command.equals(Command.M)) {
+        if (!coordinate.isAtTheBoundary(area) && command.equals(Command.M)) {
             coordinate.update(orientation);
         }
 
