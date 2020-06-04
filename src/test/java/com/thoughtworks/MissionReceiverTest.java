@@ -15,13 +15,17 @@ public class MissionReceiverTest {
         MissionReceiver missionReceiver = new MissionReceiver();
 
         //when
-        missionReceiver.resolve("1 2 N\n" + "RRLLMLRM");
+        missionReceiver.resolve("1 2 N\n" + "-5 4 -3 2\n" +  "RRLLMLRM");
 
         //then
         assertThat(getCoordinateX(missionReceiver), is(1));
         assertThat(getCoordinateY(missionReceiver), is(2));
         assertThat(missionReceiver.getCommands().size(), is(8));
         assertTrue(containsCommands(missionReceiver));
+        assertThat(getAreaMinCoordinateX(missionReceiver), is(-5));
+        assertThat(getAreaMaxCoordinateX(missionReceiver), is(4));
+        assertThat(getAreaMinCoordinateY(missionReceiver), is(-3));
+        assertThat(getAreaMaxCoordinateY(missionReceiver), is(2));
     }
 
     private boolean containsCommands(MissionReceiver missionReceiver) {
@@ -39,4 +43,23 @@ public class MissionReceiverTest {
         return missionReceiver.getCoordinateAndOrientation().getCoordinate().getX();
     }
 
+    private int getAreaMinCoordinateX(MissionReceiver missionReceiver) {
+        return getArea(missionReceiver).getMinCoordinateX();
+    }
+
+    private int getAreaMaxCoordinateX(MissionReceiver missionReceiver) {
+        return getArea(missionReceiver).getMaxCoordinateX();
+    }
+
+    private int getAreaMinCoordinateY(MissionReceiver missionReceiver) {
+        return getArea(missionReceiver).getMinCoordinateY();
+    }
+
+    private int getAreaMaxCoordinateY(MissionReceiver missionReceiver) {
+        return getArea(missionReceiver).getMaxCoordinateY();
+    }
+
+    private Area getArea(MissionReceiver missionReceiver) {
+        return missionReceiver.getArea();
+    }
 }

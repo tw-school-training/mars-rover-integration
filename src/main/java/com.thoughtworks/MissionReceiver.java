@@ -8,12 +8,24 @@ import java.util.stream.Collectors;
 class MissionReceiver {
     private CoordinateAndOrientation coordinateAndOrientation;
     private List<Command> commands;
+    private Area area;
 
     void resolve(String actions) {
         String[] splitActions = actions.split("\n");
 
         buildCoordinateAndOrientation(splitActions[0]);
-        buildCommands(splitActions[1]);
+        buildArea(splitActions[1]);
+        buildCommands(splitActions[2]);
+    }
+
+    private void buildArea(String area) {
+        String[] splitArea = area.split(" ");
+        int minCoordinateX = Integer.parseInt(splitArea[0]);
+        int maxCoordinateX = Integer.parseInt(splitArea[1]);
+        int minCoordinateY = Integer.parseInt(splitArea[2]);
+        int maxCoordinateY = Integer.parseInt(splitArea[3]);
+
+        this.area = new Area(minCoordinateX, maxCoordinateX, minCoordinateY, maxCoordinateY);
     }
 
     private void buildCoordinateAndOrientation(String coordinateAndOrientation) {
@@ -46,5 +58,9 @@ class MissionReceiver {
 
     List<Command> getCommands() {
         return new ArrayList<>(commands);
+    }
+
+    Area getArea() {
+        return area;
     }
 }
