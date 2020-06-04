@@ -43,7 +43,9 @@ class MarsRover {
     }
 
     void execute(List<Command> commands) {
-        commands.forEach(this::executeEach);
+        if (commands != null) {
+            commands.forEach(this::executeEach);
+        }
     }
 
     String getStatus() {
