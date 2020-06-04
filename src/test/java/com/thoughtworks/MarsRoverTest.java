@@ -115,7 +115,7 @@ public class MarsRoverTest {
         MarsRover marsRover = new MarsRover(new Coordinate(1, 2), Orientation.N, area);
 
         //when
-        marsRover.execute(Collections.singletonList(Command.M));
+        marsRover.execute(Arrays.asList(Command.M, Command.M));
 
         //then
         assertThat(marsRover.getCoordinateX(), is(1));
