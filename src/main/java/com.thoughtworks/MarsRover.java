@@ -28,7 +28,7 @@ class MarsRover {
         return orientation;
     }
 
-    void execute(Command command) {
+    private void execute(Command command) {
         if (command.equals(Command.M)) {
             coordinate.update(orientation);
         }
