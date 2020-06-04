@@ -15,7 +15,7 @@ class Mission {
 
         marsRover = new MarsRover(missionReceiver.getCoordinateAndOrientation());
 
-        marsRover.executeBatch(missionReceiver.getCommands());
+        marsRover.execute(missionReceiver.getCommands());
     }
 
     String report() {

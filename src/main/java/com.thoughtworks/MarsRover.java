@@ -28,7 +28,7 @@ class MarsRover {
         return orientation;
     }
 
-    private void execute(Command command) {
+    private void executeEach(Command command) {
         if (command.equals(Command.M)) {
             coordinate.update(orientation);
         }
@@ -42,8 +42,8 @@ class MarsRover {
         }
     }
 
-    void executeBatch(List<Command> commands) {
-        commands.forEach(this::execute);
+    void execute(List<Command> commands) {
+        commands.forEach(this::executeEach);
     }
 
     String getStatus() {

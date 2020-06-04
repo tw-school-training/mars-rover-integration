@@ -100,7 +100,7 @@ public class MarsRoverTest {
         MarsRover marsRover = new MarsRover(new Coordinate(1, 2), previousOrientation);
 
         //when
-        marsRover.executeBatch(commands);
+        marsRover.execute(commands);
 
         //then
         assertThat(marsRover.getCoordinateX(), is(coordinate.getX()));
