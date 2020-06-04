@@ -90,7 +90,8 @@ public class MarsRoverTest {
     private void checkCoordinateAndOrientation(List<Command> commands, Orientation previousOrientation,
                                                Orientation orientation, Coordinate coordinate) {
         //given
-        MarsRover marsRover = new MarsRover(new Coordinate(1, 2), previousOrientation);
+        Area area = new Area(-5, 5, -5, 5);
+        MarsRover marsRover = new MarsRover(new Coordinate(1, 2), previousOrientation, area);
 
         //when
         marsRover.execute(commands);

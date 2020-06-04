@@ -5,10 +5,12 @@ import java.util.List;
 class MarsRover {
     private Coordinate coordinate;
     private Orientation orientation;
+    private Area area;
 
-    MarsRover(Coordinate coordinate, Orientation orientation) {
+    MarsRover(Coordinate coordinate, Orientation orientation, Area area) {
         this.coordinate = coordinate;
         this.orientation = orientation;
+        this.area = area;
     }
 
     MarsRover(CoordinateAndOrientation coordinateAndOrientation) {
