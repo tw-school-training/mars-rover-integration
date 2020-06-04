@@ -11,22 +11,9 @@ import static org.junit.Assert.assertThat;
 
 public class MarsRoverTest {
     @Test
-    public void should_init_rover_position_and_orientation_given_coordinates_and_orientation() {
-        //given
-        MarsRover marsRover = new MarsRover(new Coordinate(1, 2), Orientation.N);
-
-        //when
-        //then
-        assertThat(marsRover.getCoordinateX(), is(1));
-        assertThat(marsRover.getCoordinateY(), is(2));
-        assertThat(marsRover.getOrientation(), is(Orientation.N));
-    }
-
-    @Test
     public void should_return_init_rover_position_and_orientation_given_empty_commands() {
         checkCoordinateAndOrientation(null, Orientation.N, Orientation.N, new Coordinate(1, 2));
     }
-
 
     @Test
     public void should_coordinate_y_plus_1_given_command_M_and_orientation_N() {
