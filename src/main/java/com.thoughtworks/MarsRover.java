@@ -47,7 +47,12 @@ class MarsRover {
 
     void execute(List<Command> commands) {
         if (commands != null) {
-            commands.forEach(this::executeEach);
+            for (Command command : commands) {
+                if (coordinate.isAtTheBoundary(area) && command.equals(Command.M)) {
+                    break;
+                }
+                executeEach(command);
+            }
         }
     }
 
